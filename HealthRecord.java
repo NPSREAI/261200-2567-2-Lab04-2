@@ -14,6 +14,7 @@ public class HealthRecord{
     }
 
     public void setHeight(int height) {
+        counter ++;
         if ( height >= MIN_PERMITTED_HEIGHT && height <= MAX_PERMITTED_HEIGHT )
             this.height = height;
         else
@@ -23,10 +24,9 @@ public class HealthRecord{
             tallestHeight = this.height ;
         if ( this.height < shortestHeight )
             shortestHeight = this.height;
+        
         if(counter > 0)
             averageHeight = (averageHeight*(counter - 1) + this.height)/counter;
-
-        counter ++;
     }
 
     public static double getAverageHeight() {
